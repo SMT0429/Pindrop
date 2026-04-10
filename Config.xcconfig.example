@@ -1,0 +1,5 @@
+// Config.xcconfig.example — 複製此檔案為 Config.xcconfig 並填入真實 API Key
+// cp Config.xcconfig.example Config.xcconfig
+
+GROQ_API_KEY = your_groq_api_key_here
+GOOGLE_PLACES_API_KEY = your_google_places_api_key_here
