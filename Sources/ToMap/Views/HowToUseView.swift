@@ -29,7 +29,7 @@ struct HowToUseView: View {
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.primary)
 
-            Text("看到喜歡的餐廳短片，分享給 ToMap，\n立刻在 Google Maps 找到它。")
+            Text("看到喜歡的餐廳短片，分享給 Pindrop，\n立刻在 Google Maps 找到它。")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -55,7 +55,7 @@ struct HowToUseView: View {
                 icon: "square.and.arrow.up",
                 iconColor: .blue,
                 title: "點擊「分享」",
-                description: "在分享選單中選擇「ToMap」"
+                description: "在分享選單中選擇「Pindrop」"
             )
 
             StepRow(
@@ -71,16 +71,30 @@ struct HowToUseView: View {
     }
 
     private var requirementNote: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "exclamationmark.circle.fill")
-                .foregroundStyle(.orange)
-                .font(.title3)
+        VStack(spacing: 8) {
+            HStack(spacing: 12) {
+                Image(systemName: "exclamationmark.circle.fill")
+                    .foregroundStyle(.orange)
+                    .font(.title3)
 
-            Text("請先確認已安裝 **Google Maps** App")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+                Text("請先確認已安裝 **Google Maps** App")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
 
-            Spacer()
+                Spacer()
+            }
+
+            HStack(spacing: 12) {
+                Image(systemName: "iphone")
+                    .foregroundStyle(.secondary)
+                    .font(.title3)
+
+                Text("需要 **iOS 17.0** 或更新版本")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+
+                Spacer()
+            }
         }
         .padding(16)
         .background(Color.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 12))
