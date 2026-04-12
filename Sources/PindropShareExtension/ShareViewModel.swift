@@ -43,7 +43,6 @@ final class ShareViewModel: ObservableObject {
             state = .error("今日使用次數已達上限（15次），請明天再試。")
             return
         }
-        incrementUsage()
         Task {
             do {
                 print("[Pindrop] Step 1: Fetching OG metadata from \(url)")
@@ -64,7 +63,7 @@ final class ShareViewModel: ObservableObject {
                         title: metadata.title,
                         description: metadata.description
                     )
-                    parsedList.forEach { print("[Pindrop] Step 2 OK (Gemini) - name: \($0.name), location: \($0.location)") }
+                    parsedList.forEach { print("[Pindrop] Step 2 OK (Groq) - name: \($0.name), location: \($0.location)") }
                 }
 
                 print("[Pindrop] Step 3: Searching Google Places for \(parsedList.count) restaurant(s)")
@@ -98,16 +97,20 @@ final class ShareViewModel: ObservableObject {
                 case 0:
                     state = .error("找不到餐廳資訊")
                 case 1:
+                    // 成功才扣配額
+                    incrementUsage()
                     state = .confirmation(allPlaces[0])
                 default:
+                    // 成功才扣配額
+                    incrementUsage()
                     state = .selection(allPlaces)
                 }
             } catch GroqError.noRestaurantFound {
-                print("[Pindrop] Gemini: 無法辨識出餐廳名稱")
+                print("[Pindrop] Groq: 無法辨識出餐廳名稱")
                 state = .error("無法從此影片辨識出餐廳")
             } catch GroqError.requestFailed {
-                print("[Pindrop] Gemini: API 請求失敗（可能是配額超限）")
-                state = .error("AI 解析失敗，請稍後再試\n（Gemini API 配額可能已用盡）")
+                print("[Pindrop] Groq: API 請求失敗（可能是配額超限）")
+                state = .error("AI 解析失敗，請稍後再試\n（Groq API 配額可能已用盡）")
             } catch {
                 print("[Pindrop] Error: \(error)")
                 state = .error("找不到餐廳資訊")

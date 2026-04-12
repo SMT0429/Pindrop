@@ -32,8 +32,8 @@ actor OGMetadataService {
             throw OGMetadataError.fetchFailed
         }
 
-        let title = extractOGTag(named: "og:title", from: html)
-        let description = extractOGTag(named: "og:description", from: html)
+        let title = await extractOGTag(named: "og:title", from: html)
+        let description = await extractOGTag(named: "og:description", from: html)
 
         guard title != nil || description != nil else {
             throw OGMetadataError.noMetadataFound
@@ -45,7 +45,7 @@ actor OGMetadataService {
         )
     }
 
-    private static func extractOGTag(named property: String, from html: String) -> String? {
+    private static func extractOGTag(named property: String, from html: String) async -> String? {
         // 匹配 <meta property="og:xxx" content="..."> 或 <meta content="..." property="og:xxx">
         let patterns = [
             #"<meta[^>]+property=[\"']"# + NSRegularExpression.escapedPattern(for: property) + #"[\"'][^>]+content=[\"']([^\"']+)[\"']"#,
@@ -56,9 +56,9 @@ actor OGMetadataService {
             if let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive),
                let match = regex.firstMatch(in: html, range: NSRange(html.startIndex..., in: html)),
                let range = Range(match.range(at: 1), in: html) {
-                return String(html[range])
-                    .decodingHTMLEntities()
-                    .trimmingCharacters(in: .whitespacesAndNewlines)
+                let raw = String(html[range])
+                let decoded = await raw.decodingHTMLEntities()
+                return decoded.trimmingCharacters(in: .whitespacesAndNewlines)
             }
         }
         return nil
@@ -66,25 +66,29 @@ actor OGMetadataService {
 }
 
 private extension String {
-    /// 解碼所有 HTML entities，包含 &#x1234; 和 &amp; 等
-    func decodingHTMLEntities() -> String {
-        guard let data = self.data(using: .utf8),
-              let attributed = try? NSAttributedString(
-                data: data,
-                options: [
-                    .documentType: NSAttributedString.DocumentType.html,
-                    .characterEncoding: String.Encoding.utf8.rawValue
-                ],
-                documentAttributes: nil
-              ) else {
-            // fallback：手動替換常見 entities
-            return self
-                .replacingOccurrences(of: "&amp;", with: "&")
-                .replacingOccurrences(of: "&lt;", with: "<")
-                .replacingOccurrences(of: "&gt;", with: ">")
-                .replacingOccurrences(of: "&quot;", with: "\"")
-                .replacingOccurrences(of: "&#39;", with: "'")
+    /// 解碼所有 HTML entities，包含 &#x1234; 和 &amp; 等。
+    /// NSAttributedString(data:options:documentAttributes:) 使用 WebKit 的 HTML parser，
+    /// 必須在 main thread 呼叫，否則可能 crash。
+    func decodingHTMLEntities() async -> String {
+        await MainActor.run { [self] in
+            guard let data = self.data(using: .utf8),
+                  let attributed = try? NSAttributedString(
+                    data: data,
+                    options: [
+                        .documentType: NSAttributedString.DocumentType.html,
+                        .characterEncoding: String.Encoding.utf8.rawValue
+                    ],
+                    documentAttributes: nil
+                  ) else {
+                // fallback：手動替換常見 entities
+                return self
+                    .replacingOccurrences(of: "&amp;", with: "&")
+                    .replacingOccurrences(of: "&lt;", with: "<")
+                    .replacingOccurrences(of: "&gt;", with: ">")
+                    .replacingOccurrences(of: "&quot;", with: "\"")
+                    .replacingOccurrences(of: "&#39;", with: "'")
+            }
+            return attributed.string
         }
-        return attributed.string
     }
 }
