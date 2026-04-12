@@ -16,7 +16,7 @@ final class ShareViewModel: ObservableObject {
 
     var modelContainer: ModelContainer { container }
 
-    private let usageDefaults = UserDefaults(suiteName: "group.com.smt.tomap")!
+    private let usageDefaults = UserDefaults(suiteName: "group.com.smt.pindrop")!
     private let dailyLimit = 15
 
     private var todayString: String {
@@ -46,28 +46,28 @@ final class ShareViewModel: ObservableObject {
         incrementUsage()
         Task {
             do {
-                print("[ToMap] Step 1: Fetching OG metadata from \(url)")
+                print("[Pindrop] Step 1: Fetching OG metadata from \(url)")
                 let metadata = try await OGMetadataService.fetch(url: url)
-                print("[ToMap] Step 1 OK - title: \(metadata.title)")
-                print("[ToMap] Step 1 OK - description: \(metadata.description)")
+                print("[Pindrop] Step 1 OK - title: \(metadata.title)")
+                print("[Pindrop] Step 1 OK - description: \(metadata.description)")
 
                 // Step 2a: 先嘗試本地快速解析（不消耗 API 配額）
                 let text = metadata.title + " " + metadata.description
                 let parsedList: [ParsedRestaurant]
                 if let local = LocalParser.parse(text: text) {
-                    print("[ToMap] Step 2 OK (local) - name: \(local.name), location: \(local.location)")
+                    print("[Pindrop] Step 2 OK (local) - name: \(local.name), location: \(local.location)")
                     parsedList = [local]
                 } else {
                     // Step 2b: Fallback 到 Groq
-                    print("[ToMap] Step 2: Calling Groq API")
+                    print("[Pindrop] Step 2: Calling Groq API")
                     parsedList = try await GroqService.parseRestaurant(
                         title: metadata.title,
                         description: metadata.description
                     )
-                    parsedList.forEach { print("[ToMap] Step 2 OK (Gemini) - name: \($0.name), location: \($0.location)") }
+                    parsedList.forEach { print("[Pindrop] Step 2 OK (Gemini) - name: \($0.name), location: \($0.location)") }
                 }
 
-                print("[ToMap] Step 3: Searching Google Places for \(parsedList.count) restaurant(s)")
+                print("[Pindrop] Step 3: Searching Google Places for \(parsedList.count) restaurant(s)")
                 let allPlaces: [Place]
                 if parsedList.count == 1 {
                     // 單一餐廳：沿用原有邏輯，可回傳多筆候選供使用者選
@@ -91,8 +91,8 @@ final class ShareViewModel: ObservableObject {
                         return collected
                     }
                 }
-                print("[ToMap] Step 3 OK - found \(allPlaces.count) place(s)")
-                allPlaces.forEach { print("[ToMap]   • \($0.name) | \($0.address) | \($0.id)") }
+                print("[Pindrop] Step 3 OK - found \(allPlaces.count) place(s)")
+                allPlaces.forEach { print("[Pindrop]   • \($0.name) | \($0.address) | \($0.id)") }
 
                 switch allPlaces.count {
                 case 0:
@@ -103,13 +103,13 @@ final class ShareViewModel: ObservableObject {
                     state = .selection(allPlaces)
                 }
             } catch GroqError.noRestaurantFound {
-                print("[ToMap] Gemini: 無法辨識出餐廳名稱")
+                print("[Pindrop] Gemini: 無法辨識出餐廳名稱")
                 state = .error("無法從此影片辨識出餐廳")
             } catch GroqError.requestFailed {
-                print("[ToMap] Gemini: API 請求失敗（可能是配額超限）")
+                print("[Pindrop] Gemini: API 請求失敗（可能是配額超限）")
                 state = .error("AI 解析失敗，請稍後再試\n（Gemini API 配額可能已用盡）")
             } catch {
-                print("[ToMap] Error: \(error)")
+                print("[Pindrop] Error: \(error)")
                 state = .error("找不到餐廳資訊")
             }
         }

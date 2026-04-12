@@ -26,7 +26,7 @@ final class ShareViewController: UIViewController {
             },
             onCancel: { [weak self] in
                 self?.extensionContext?.cancelRequest(
-                    withError: NSError(domain: "ToMapShareExtension", code: NSUserCancelledError)
+                    withError: NSError(domain: "PindropShareExtension", code: NSUserCancelledError)
                 )
             }
         )
@@ -56,7 +56,7 @@ final class ShareViewController: UIViewController {
         // 印出所有 attachment 的 type，方便 debug
         for (i, item) in items.enumerated() {
             for (j, provider) in (item.attachments ?? []).enumerated() {
-                print("[ToMap] item[\(i)] attachment[\(j)] types: \(provider.registeredTypeIdentifiers)")
+                print("[Pindrop] item[\(i)] attachment[\(j)] types: \(provider.registeredTypeIdentifiers)")
             }
         }
 
@@ -67,15 +67,15 @@ final class ShareViewController: UIViewController {
                 // 優先嘗試 public.url
                 if provider.hasItemConformingToTypeIdentifier(UTType.url.identifier) {
                     provider.loadItem(forTypeIdentifier: UTType.url.identifier) { [weak self] result, error in
-                        print("[ToMap] public.url result: \(String(describing: result)), error: \(String(describing: error))")
+                        print("[Pindrop] public.url result: \(String(describing: result)), error: \(String(describing: error))")
                         DispatchQueue.main.async {
                             if let url = result as? URL {
-                                print("[ToMap] Got URL: \(url)")
-                                print("[ToMap] Calling process(url:)...")
+                                print("[Pindrop] Got URL: \(url)")
+                                print("[Pindrop] Calling process(url:)...")
                                 self?.viewModel.process(url: url)
-                                print("[ToMap] process(url:) returned")
+                                print("[Pindrop] process(url:) returned")
                             } else if let str = result as? String, let url = URL(string: str) {
-                                print("[ToMap] Got URL from string: \(url)")
+                                print("[Pindrop] Got URL from string: \(url)")
                                 self?.viewModel.process(url: url)
                             } else {
                                 self?.tryPlainText(from: item)
@@ -104,15 +104,15 @@ final class ShareViewController: UIViewController {
         for provider in item.attachments ?? [] {
             if provider.hasItemConformingToTypeIdentifier(UTType.plainText.identifier) {
                 provider.loadItem(forTypeIdentifier: UTType.plainText.identifier) { [weak self] result, error in
-                    print("[ToMap] plain-text result: \(String(describing: result)), error: \(String(describing: error))")
+                    print("[Pindrop] plain-text result: \(String(describing: result)), error: \(String(describing: error))")
                     DispatchQueue.main.async {
                         let text = result as? String ?? ""
                         // 從文字中抽出第一個 URL
                         if let url = self?.extractFirstURL(from: text) {
-                            print("[ToMap] Extracted URL from text: \(url)")
+                            print("[Pindrop] Extracted URL from text: \(url)")
                             self?.viewModel.process(url: url)
                         } else {
-                            print("[ToMap] No URL found in text: \(text)")
+                            print("[Pindrop] No URL found in text: \(text)")
                             self?.setError("找不到連結")
                         }
                     }
@@ -149,12 +149,12 @@ final class ShareViewController: UIViewController {
         while let r = responder {
             if let app = r as? UIApplication {
                 app.open(url)
-                print("[ToMap] Opened URL via responder chain: \(url)")
+                print("[Pindrop] Opened URL via responder chain: \(url)")
                 return true
             }
             responder = r.next
         }
-        print("[ToMap] Responder chain: UIApplication not found, trying extensionContext")
+        print("[Pindrop] Responder chain: UIApplication not found, trying extensionContext")
         extensionContext?.open(url)
         return false
     }

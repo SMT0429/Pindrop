@@ -62,11 +62,11 @@ actor GroqService {
 
         let (data, response) = try await URLSession.shared.data(for: request)
         let statusCode = (response as? HTTPURLResponse)?.statusCode ?? -1
-        print("[ToMap] Groq HTTP status: \(statusCode)")
+        print("[Pindrop] Groq HTTP status: \(statusCode)")
 
         guard (200...299).contains(statusCode) else {
             let body = String(data: data, encoding: .utf8) ?? "(no body)"
-            print("[ToMap] Groq error body: \(body.prefix(500))")
+            print("[Pindrop] Groq error body: \(body.prefix(500))")
             throw GroqError.requestFailed
         }
 

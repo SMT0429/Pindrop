@@ -10,7 +10,7 @@
 		025A68ACAC6742D4B3F1D624 /* LocalParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F468727A068852602BFA292A /* LocalParser.swift */; };
 		0B33B28D3EB9C436E8EA6363 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F0339344E2BECD258B786 /* ListDetailView.swift */; };
 		11A18AE13ECB50AED6177C82 /* MapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3428E164034E39FE91EC23 /* MapsService.swift */; };
-		11E0F06118DE022B6A399106 /* ToMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E299D54FF47E1D11F726E /* ToMapApp.swift */; };
+		11E0F06118DE022B6A399106 /* PindropApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E299D54FF47E1D11F726E /* PindropApp.swift */; };
 		159006590A94E60671BED965 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9668AE4B713822598DCD29DB /* PlacesService.swift */; };
 		18A1E81995EBC259C7B3BC21 /* ShareRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674EBADB0EEF6F2DF4615405 /* ShareRootView.swift */; };
 		200B3148A2917497D5AB1E6F /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62AE427FD6DF9496547B169 /* ListsView.swift */; };
@@ -29,7 +29,7 @@
 		9D0CA8A8939BDBF59C0B6407 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B23B1DEB1CDAA1D31C4D2 /* HistoryEntry.swift */; };
 		9F847851723438C0BB0654B1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E6656A18AA586DE4C6AD7B /* OnboardingView.swift */; };
 		A04A0470AC24A17231B052EA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F592DC540A148C8C9296C124 /* ShareViewController.swift */; };
-		A45DBEED787FE34A284D5778 /* ToMapShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C7C67016BB1A7A67991F215 /* ToMapShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A45DBEED787FE34A284D5778 /* PindropShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C7C67016BB1A7A67991F215 /* PindropShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A7A79CE5E2A18019FD04A944 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D589400F8E185502674B8F /* PersistenceController.swift */; };
 		CD51F9E4904BB1A3DF67FA33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC7192A8DFBC80A0BEF7B49 /* Assets.xcassets */; };
 		D22E65707B501BF80998021D /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B23B1DEB1CDAA1D31C4D2 /* HistoryEntry.swift */; };
@@ -48,7 +48,7 @@
 			containerPortal = 60F93E045F7EBA345AC7E8E1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5AE2F193F66C9B6D3DEF2AAD;
-			remoteInfo = ToMapShareExtension;
+			remoteInfo = PindropShareExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -59,7 +59,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A45DBEED787FE34A284D5778 /* ToMapShareExtension.appex in Embed Foundation Extensions */,
+				A45DBEED787FE34A284D5778 /* PindropShareExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +68,7 @@
 
 /* Begin PBXFileReference section */
 		026BC50CFD55DD7C5807B25D /* ListPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPickerView.swift; sourceTree = "<group>"; };
-		0C7C67016BB1A7A67991F215 /* ToMapShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ToMapShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C7C67016BB1A7A67991F215 /* PindropShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PindropShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C93E423DC1310DA6DE79C09 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		26468B2BF870787B7EE1146D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		35BDCC4F35886D1CF374F431 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		8DA0201CFAFDC4423BDA3450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		90E6656A18AA586DE4C6AD7B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		916865C1164A344F78BE600F /* OGMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OGMetadataService.swift; sourceTree = "<group>"; };
-		920E299D54FF47E1D11F726E /* ToMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToMapApp.swift; sourceTree = "<group>"; };
+		920E299D54FF47E1D11F726E /* PindropApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PindropApp.swift; sourceTree = "<group>"; };
 		92A5705409C4D5B6CFE81211 /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
 		9668AE4B713822598DCD29DB /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		9CC1166C04AFC12D3DF638A2 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		D62AE427FD6DF9496547B169 /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
 		D86EC3EDB72D574A144A2D0E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		DCFB2485E97CC942715C08B2 /* HowToUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseView.swift; sourceTree = "<group>"; };
-		E6D4908EF13A8BB7EF886950 /* ToMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6D4908EF13A8BB7EF886950 /* Pindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F468727A068852602BFA292A /* LocalParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalParser.swift; sourceTree = "<group>"; };
 		F592DC540A148C8C9296C124 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		F71F0339344E2BECD258B786 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		0A0F4814C2720B060F550B59 /* ToMapShareExtension */ = {
+		0A0F4814C2720B060F550B59 /* PindropShareExtension */ = {
 			isa = PBXGroup;
 			children = (
 				35D08C80C30A24BE3EC120B0 /* Info.plist */,
@@ -120,8 +120,8 @@
 				60FE8CEA5D1A5ADA0F6ED12C /* Services */,
 				82D93FEF10F49A66F1ED95DF /* Views */,
 			);
-			name = ToMapShareExtension;
-			path = Sources/ToMapShareExtension;
+			name = PindropShareExtension;
+			path = Sources/PindropShareExtension;
 			sourceTree = "<group>";
 		};
 		215FD8FAC87B4910F762D91B /* Models */ = {
@@ -144,34 +144,34 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		490BBE48123C6FB61D62D4ED /* ToMap */ = {
+		490BBE48123C6FB61D62D4ED /* Pindrop */ = {
 			isa = PBXGroup;
 			children = (
 				5BC7192A8DFBC80A0BEF7B49 /* Assets.xcassets */,
 				35BDCC4F35886D1CF374F431 /* ContentView.swift */,
 				8DA0201CFAFDC4423BDA3450 /* Info.plist */,
-				920E299D54FF47E1D11F726E /* ToMapApp.swift */,
+				920E299D54FF47E1D11F726E /* PindropApp.swift */,
 				3620E5F824F6F3F8CED1FD74 /* Views */,
 			);
-			name = ToMap;
-			path = Sources/ToMap;
+			name = Pindrop;
+			path = Sources/Pindrop;
 			sourceTree = "<group>";
 		};
 		4D7637C85D3C72C4CDFAE7CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E6D4908EF13A8BB7EF886950 /* ToMap.app */,
-				0C7C67016BB1A7A67991F215 /* ToMapShareExtension.appex */,
+				E6D4908EF13A8BB7EF886950 /* Pindrop.app */,
+				0C7C67016BB1A7A67991F215 /* PindropShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		574AA7AA5624B8283623693F /* ToMap */ = {
+		574AA7AA5624B8283623693F /* Pindrop */ = {
 			isa = PBXGroup;
 			children = (
 				26468B2BF870787B7EE1146D /* Config.xcconfig */,
 			);
-			name = ToMap;
+			name = Pindrop;
 			path = .;
 			sourceTree = "<group>";
 		};
@@ -225,9 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				8F63DC5F963629E7BABBAEE9 /* Shared */,
-				574AA7AA5624B8283623693F /* ToMap */,
-				490BBE48123C6FB61D62D4ED /* ToMap */,
-				0A0F4814C2720B060F550B59 /* ToMapShareExtension */,
+				574AA7AA5624B8283623693F /* Pindrop */,
+				490BBE48123C6FB61D62D4ED /* Pindrop */,
+				0A0F4814C2720B060F550B59 /* PindropShareExtension */,
 				4D7637C85D3C72C4CDFAE7CE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -243,9 +243,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1BA2A0F749E0956252044D01 /* ToMap */ = {
+		1BA2A0F749E0956252044D01 /* Pindrop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D5DEA209E3D29E86DA45F4C1 /* Build configuration list for PBXNativeTarget "ToMap" */;
+			buildConfigurationList = D5DEA209E3D29E86DA45F4C1 /* Build configuration list for PBXNativeTarget "Pindrop" */;
 			buildPhases = (
 				BB4375FC6F5A4150734FDDD1 /* Sources */,
 				97053A8D179203F9E5CC522A /* Resources */,
@@ -256,16 +256,16 @@
 			dependencies = (
 				FBC968D6C81712A87BBD18FD /* PBXTargetDependency */,
 			);
-			name = ToMap;
+			name = Pindrop;
 			packageProductDependencies = (
 			);
-			productName = ToMap;
-			productReference = E6D4908EF13A8BB7EF886950 /* ToMap.app */;
+			productName = Pindrop;
+			productReference = E6D4908EF13A8BB7EF886950 /* Pindrop.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5AE2F193F66C9B6D3DEF2AAD /* ToMapShareExtension */ = {
+		5AE2F193F66C9B6D3DEF2AAD /* PindropShareExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EE3CE94B2B6F305D75168457 /* Build configuration list for PBXNativeTarget "ToMapShareExtension" */;
+			buildConfigurationList = EE3CE94B2B6F305D75168457 /* Build configuration list for PBXNativeTarget "PindropShareExtension" */;
 			buildPhases = (
 				E3D03CCE687B637CC517DF4D /* Sources */,
 			);
@@ -273,11 +273,11 @@
 			);
 			dependencies = (
 			);
-			name = ToMapShareExtension;
+			name = PindropShareExtension;
 			packageProductDependencies = (
 			);
-			productName = ToMapShareExtension;
-			productReference = 0C7C67016BB1A7A67991F215 /* ToMapShareExtension.appex */;
+			productName = PindropShareExtension;
+			productReference = 0C7C67016BB1A7A67991F215 /* PindropShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -289,7 +289,7 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 			};
-			buildConfigurationList = B0B36AD3A23D37F992FE8ECF /* Build configuration list for PBXProject "ToMap" */;
+			buildConfigurationList = B0B36AD3A23D37F992FE8ECF /* Build configuration list for PBXProject "Pindrop" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -303,8 +303,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1BA2A0F749E0956252044D01 /* ToMap */,
-				5AE2F193F66C9B6D3DEF2AAD /* ToMapShareExtension */,
+				1BA2A0F749E0956252044D01 /* Pindrop */,
+				5AE2F193F66C9B6D3DEF2AAD /* PindropShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -336,7 +336,7 @@
 				6AE49B87DA33C8A1BD1CD433 /* PersistenceController.swift in Sources */,
 				EAE2EA83094E937915223DC1 /* RestaurantItem.swift in Sources */,
 				E33712A5C481C4919AF38FDB /* RestaurantList.swift in Sources */,
-				11E0F06118DE022B6A399106 /* ToMapApp.swift in Sources */,
+				11E0F06118DE022B6A399106 /* PindropApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +371,7 @@
 /* Begin PBXTargetDependency section */
 		FBC968D6C81712A87BBD18FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5AE2F193F66C9B6D3DEF2AAD /* ToMapShareExtension */;
+			target = 5AE2F193F66C9B6D3DEF2AAD /* PindropShareExtension */;
 			targetProxy = 664D26559EDE8E2FC0E43CE1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -381,10 +381,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 26468B2BF870787B7EE1146D /* Config.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Entitlements/ToMapShareExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/PindropShareExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69V3Q74Y57;
-				INFOPLIST_FILE = Sources/ToMapShareExtension/Info.plist;
+				INFOPLIST_FILE = Sources/PindropShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -392,7 +392,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smt.tomap.shareextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smt.pindrop.shareextension;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -403,10 +403,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 26468B2BF870787B7EE1146D /* Config.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Entitlements/ToMapShareExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/PindropShareExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69V3Q74Y57;
-				INFOPLIST_FILE = Sources/ToMapShareExtension/Info.plist;
+				INFOPLIST_FILE = Sources/PindropShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -414,7 +414,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smt.tomap.shareextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smt.pindrop.shareextension;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,18 +489,18 @@
 			baseConfigurationReference = 26468B2BF870787B7EE1146D /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Entitlements/ToMap.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/Pindrop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69V3Q74Y57;
-				INFOPLIST_FILE = Sources/ToMap/Info.plist;
+				INFOPLIST_FILE = Sources/Pindrop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smt.tomap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smt.pindrop;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -512,18 +512,18 @@
 			baseConfigurationReference = 26468B2BF870787B7EE1146D /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Entitlements/ToMap.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/Pindrop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 69V3Q74Y57;
-				INFOPLIST_FILE = Sources/ToMap/Info.plist;
+				INFOPLIST_FILE = Sources/Pindrop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smt.tomap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smt.pindrop;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,7 +589,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0B36AD3A23D37F992FE8ECF /* Build configuration list for PBXProject "ToMap" */ = {
+		B0B36AD3A23D37F992FE8ECF /* Build configuration list for PBXProject "Pindrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D5B1E2767D0D8ACD526D4FD /* Debug */,
@@ -598,7 +598,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		D5DEA209E3D29E86DA45F4C1 /* Build configuration list for PBXNativeTarget "ToMap" */ = {
+		D5DEA209E3D29E86DA45F4C1 /* Build configuration list for PBXNativeTarget "Pindrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A726CFD6C4DC95B05C8CC772 /* Debug */,
@@ -607,7 +607,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		EE3CE94B2B6F305D75168457 /* Build configuration list for PBXNativeTarget "ToMapShareExtension" */ = {
+		EE3CE94B2B6F305D75168457 /* Build configuration list for PBXNativeTarget "PindropShareExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				48B4C25B416F89DF85F63F09 /* Debug */,

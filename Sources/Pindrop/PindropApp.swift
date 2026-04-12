@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct ToMapApp: App {
+struct PindropApp: App {
     private let container = PersistenceController.makeContainer()
 
     var body: some Scene {

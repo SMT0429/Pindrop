@@ -1,4 +1,4 @@
-name: ToMap
+name: Pindrop
 options:
   bundleIdPrefix: com.smt
   deploymentTarget:
@@ -6,17 +6,17 @@ options:
   xcodeVersion: "16"
 
 targets:
-  ToMap:
+  Pindrop:
     type: application
     platform: iOS
     sources:
-      - path: Sources/ToMap
+      - path: Sources/Pindrop
       - path: Sources/Shared
     configFiles:
       Debug: Config.xcconfig
       Release: Config.xcconfig
     info:
-      path: Sources/ToMap/Info.plist
+      path: Sources/Pindrop/Info.plist
       properties:
         CFBundleDisplayName: Pindrop
         UILaunchScreen: {}
@@ -28,27 +28,27 @@ targets:
         GOOGLE_PLACES_API_KEY: $(GOOGLE_PLACES_API_KEY)
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.smt.tomap
+        PRODUCT_BUNDLE_IDENTIFIER: com.smt.pindrop
         SWIFT_VERSION: "5.9"
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
         IPHONEOS_DEPLOYMENT_TARGET: "17.0"
-        CODE_SIGN_ENTITLEMENTS: Entitlements/ToMap.entitlements
+        CODE_SIGN_ENTITLEMENTS: Entitlements/Pindrop.entitlements
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     dependencies:
-      - target: ToMapShareExtension
+      - target: PindropShareExtension
 
-  ToMapShareExtension:
+  PindropShareExtension:
     type: app-extension
     platform: iOS
     sources:
-      - path: Sources/ToMapShareExtension
+      - path: Sources/PindropShareExtension
       - path: Sources/Shared
     configFiles:
       Debug: Config.xcconfig
       Release: Config.xcconfig
     info:
-      path: Sources/ToMapShareExtension/Info.plist
+      path: Sources/PindropShareExtension/Info.plist
       properties:
         CFBundleDisplayName: Pindrop
         GROQ_API_KEY: $(GROQ_API_KEY)
@@ -60,9 +60,9 @@ targets:
             NSExtensionActivationRule: "SUBQUERY(extensionItems, $extensionItem, SUBQUERY($extensionItem.attachments, $attachment, ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO \"public.url\").@count > 0).@count > 0"
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.smt.tomap.shareextension
+        PRODUCT_BUNDLE_IDENTIFIER: com.smt.pindrop.shareextension
         SWIFT_VERSION: "5.9"
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "1"
         IPHONEOS_DEPLOYMENT_TARGET: "17.0"
-        CODE_SIGN_ENTITLEMENTS: Entitlements/ToMapShareExtension.entitlements
+        CODE_SIGN_ENTITLEMENTS: Entitlements/PindropShareExtension.entitlements
