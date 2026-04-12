@@ -18,7 +18,7 @@ targets:
     info:
       path: Sources/ToMap/Info.plist
       properties:
-        CFBundleDisplayName: ToMap
+        CFBundleDisplayName: Pindrop
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
@@ -34,6 +34,7 @@ targets:
         CURRENT_PROJECT_VERSION: "1"
         IPHONEOS_DEPLOYMENT_TARGET: "17.0"
         CODE_SIGN_ENTITLEMENTS: Entitlements/ToMap.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     dependencies:
       - target: ToMapShareExtension
 
@@ -49,7 +50,7 @@ targets:
     info:
       path: Sources/ToMapShareExtension/Info.plist
       properties:
-        CFBundleDisplayName: ToMap
+        CFBundleDisplayName: Pindrop
         GROQ_API_KEY: $(GROQ_API_KEY)
         GOOGLE_PLACES_API_KEY: $(GOOGLE_PLACES_API_KEY)
         NSExtension:

@@ -16,7 +16,34 @@ final class ShareViewModel: ObservableObject {
 
     var modelContainer: ModelContainer { container }
 
+    private let usageDefaults = UserDefaults(suiteName: "group.com.smt.tomap")!
+    private let dailyLimit = 15
+
+    private var todayString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: Date())
+    }
+
+    private func todayUsageCount() -> Int {
+        let saved = usageDefaults.string(forKey: "lastShareDate") ?? ""
+        if saved != todayString {
+            usageDefaults.set(0, forKey: "dailyShareCount")
+            usageDefaults.set(todayString, forKey: "lastShareDate")
+        }
+        return usageDefaults.integer(forKey: "dailyShareCount")
+    }
+
+    private func incrementUsage() {
+        usageDefaults.set(usageDefaults.integer(forKey: "dailyShareCount") + 1, forKey: "dailyShareCount")
+    }
+
     func process(url: URL) {
+        guard todayUsageCount() < dailyLimit else {
+            state = .error("今日使用次數已達上限（15次），請明天再試。")
+            return
+        }
+        incrementUsage()
         Task {
             do {
                 print("[ToMap] Step 1: Fetching OG metadata from \(url)")
@@ -31,9 +58,9 @@ final class ShareViewModel: ObservableObject {
                     print("[ToMap] Step 2 OK (local) - name: \(local.name), location: \(local.location)")
                     parsedList = [local]
                 } else {
-                    // Step 2b: Fallback 到 Gemini
-                    print("[ToMap] Step 2: Calling Gemini API")
-                    parsedList = try await GeminiService.parseRestaurant(
+                    // Step 2b: Fallback 到 Groq
+                    print("[ToMap] Step 2: Calling Groq API")
+                    parsedList = try await GroqService.parseRestaurant(
                         title: metadata.title,
                         description: metadata.description
                     )
@@ -75,10 +102,10 @@ final class ShareViewModel: ObservableObject {
                 default:
                     state = .selection(allPlaces)
                 }
-            } catch GeminiError.noRestaurantFound {
+            } catch GroqError.noRestaurantFound {
                 print("[ToMap] Gemini: 無法辨識出餐廳名稱")
                 state = .error("無法從此影片辨識出餐廳")
-            } catch GeminiError.requestFailed {
+            } catch GroqError.requestFailed {
                 print("[ToMap] Gemini: API 請求失敗（可能是配額超限）")
                 state = .error("AI 解析失敗，請稍後再試\n（Gemini API 配額可能已用盡）")
             } catch {

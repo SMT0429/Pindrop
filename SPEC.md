@@ -204,3 +204,4 @@ https://www.google.com/maps/search/?api=1&query=<name>&query_place_id=<place_id>
 | Groq 解析準確率 | 影片描述若無餐廳名稱則無法解析 | LocalParser 先行；清楚顯示錯誤，不靜默失敗 |
 | Groq API 配額 | 免費額度有限 | LocalParser 降低 API 呼叫量 |
 | Share Extension 高度 | iOS 不允許外部控制 sheet 高度 | 自製 bottom sheet（透明背景 + dim overlay） |
+

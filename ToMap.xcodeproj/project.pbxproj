@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		025A68ACAC6742D4B3F1D624 /* LocalParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F468727A068852602BFA292A /* LocalParser.swift */; };
-		062C8F135780711D9C258BE5 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CDA94AF7BAA9C35CFBD27 /* GeminiService.swift */; };
 		0B33B28D3EB9C436E8EA6363 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F0339344E2BECD258B786 /* ListDetailView.swift */; };
 		11A18AE13ECB50AED6177C82 /* MapsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3428E164034E39FE91EC23 /* MapsService.swift */; };
 		11E0F06118DE022B6A399106 /* ToMapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E299D54FF47E1D11F726E /* ToMapApp.swift */; };
@@ -20,6 +19,7 @@
 		433D4F11C0051EBC13D803F3 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E524E559B122B4C431479 /* ErrorView.swift */; };
 		5F737F73B642254667B5D5ED /* ListPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026BC50CFD55DD7C5807B25D /* ListPickerView.swift */; };
 		6673E18DC3ADF615FE18DBF7 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93E423DC1310DA6DE79C09 /* Place.swift */; };
+		6957DE4B61E7DD35A63E73FF /* GroqService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E9C958E36D35E5DBDCF1A /* GroqService.swift */; };
 		6AE49B87DA33C8A1BD1CD433 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D589400F8E185502674B8F /* PersistenceController.swift */; };
 		6E3B7D8CC0D663E5D32F925F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AF60EDC171497A33E46824 /* LoadingView.swift */; };
 		89F2A71B637AD0D0D7D4C84A /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5705409C4D5B6CFE81211 /* RestaurantList.swift */; };
@@ -27,9 +27,11 @@
 		97118D313CAC6B406A4A075E /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD3CB27CCCC1D22C1DE6839 /* HistoryView.swift */; };
 		9C5137A1EC30C0C2BF89C305 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BDCC4F35886D1CF374F431 /* ContentView.swift */; };
 		9D0CA8A8939BDBF59C0B6407 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B23B1DEB1CDAA1D31C4D2 /* HistoryEntry.swift */; };
+		9F847851723438C0BB0654B1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E6656A18AA586DE4C6AD7B /* OnboardingView.swift */; };
 		A04A0470AC24A17231B052EA /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F592DC540A148C8C9296C124 /* ShareViewController.swift */; };
 		A45DBEED787FE34A284D5778 /* ToMapShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C7C67016BB1A7A67991F215 /* ToMapShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A7A79CE5E2A18019FD04A944 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D589400F8E185502674B8F /* PersistenceController.swift */; };
+		CD51F9E4904BB1A3DF67FA33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC7192A8DFBC80A0BEF7B49 /* Assets.xcassets */; };
 		D22E65707B501BF80998021D /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9B23B1DEB1CDAA1D31C4D2 /* HistoryEntry.swift */; };
 		D956DBFD5BA319AFC6FE2686 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EC3EDB72D574A144A2D0E /* Config.swift */; };
 		E31B695A9D70B5B2E6A381B5 /* SelectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A861CF66A14E87D5A2214 /* SelectionListView.swift */; };
@@ -68,17 +70,20 @@
 		026BC50CFD55DD7C5807B25D /* ListPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPickerView.swift; sourceTree = "<group>"; };
 		0C7C67016BB1A7A67991F215 /* ToMapShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ToMapShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C93E423DC1310DA6DE79C09 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		26468B2BF870787B7EE1146D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		35BDCC4F35886D1CF374F431 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		35D08C80C30A24BE3EC120B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3C5E9C958E36D35E5DBDCF1A /* GroqService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroqService.swift; sourceTree = "<group>"; };
+		5BC7192A8DFBC80A0BEF7B49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C9B23B1DEB1CDAA1D31C4D2 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
 		5FD3CB27CCCC1D22C1DE6839 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		674EBADB0EEF6F2DF4615405 /* ShareRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRootView.swift; sourceTree = "<group>"; };
 		797C2F695C3149A6679C6533 /* RestaurantItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantItem.swift; sourceTree = "<group>"; };
 		804E524E559B122B4C431479 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		838CDA94AF7BAA9C35CFBD27 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
 		87AF60EDC171497A33E46824 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8B5A861CF66A14E87D5A2214 /* SelectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionListView.swift; sourceTree = "<group>"; };
 		8DA0201CFAFDC4423BDA3450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		90E6656A18AA586DE4C6AD7B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		916865C1164A344F78BE600F /* OGMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OGMetadataService.swift; sourceTree = "<group>"; };
 		920E299D54FF47E1D11F726E /* ToMapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToMapApp.swift; sourceTree = "<group>"; };
 		92A5705409C4D5B6CFE81211 /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
@@ -134,8 +139,22 @@
 				DCFB2485E97CC942715C08B2 /* HowToUseView.swift */,
 				F71F0339344E2BECD258B786 /* ListDetailView.swift */,
 				D62AE427FD6DF9496547B169 /* ListsView.swift */,
+				90E6656A18AA586DE4C6AD7B /* OnboardingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		490BBE48123C6FB61D62D4ED /* ToMap */ = {
+			isa = PBXGroup;
+			children = (
+				5BC7192A8DFBC80A0BEF7B49 /* Assets.xcassets */,
+				35BDCC4F35886D1CF374F431 /* ContentView.swift */,
+				8DA0201CFAFDC4423BDA3450 /* Info.plist */,
+				920E299D54FF47E1D11F726E /* ToMapApp.swift */,
+				3620E5F824F6F3F8CED1FD74 /* Views */,
+			);
+			name = ToMap;
+			path = Sources/ToMap;
 			sourceTree = "<group>";
 		};
 		4D7637C85D3C72C4CDFAE7CE /* Products */ = {
@@ -150,20 +169,17 @@
 		574AA7AA5624B8283623693F /* ToMap */ = {
 			isa = PBXGroup;
 			children = (
-				35BDCC4F35886D1CF374F431 /* ContentView.swift */,
-				8DA0201CFAFDC4423BDA3450 /* Info.plist */,
-				920E299D54FF47E1D11F726E /* ToMapApp.swift */,
-				3620E5F824F6F3F8CED1FD74 /* Views */,
+				26468B2BF870787B7EE1146D /* Config.xcconfig */,
 			);
 			name = ToMap;
-			path = Sources/ToMap;
+			path = .;
 			sourceTree = "<group>";
 		};
 		60FE8CEA5D1A5ADA0F6ED12C /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				D86EC3EDB72D574A144A2D0E /* Config.swift */,
-				838CDA94AF7BAA9C35CFBD27 /* GeminiService.swift */,
+				3C5E9C958E36D35E5DBDCF1A /* GroqService.swift */,
 				F468727A068852602BFA292A /* LocalParser.swift */,
 				916865C1164A344F78BE600F /* OGMetadataService.swift */,
 				9668AE4B713822598DCD29DB /* PlacesService.swift */,
@@ -210,6 +226,7 @@
 			children = (
 				8F63DC5F963629E7BABBAEE9 /* Shared */,
 				574AA7AA5624B8283623693F /* ToMap */,
+				490BBE48123C6FB61D62D4ED /* ToMap */,
 				0A0F4814C2720B060F550B59 /* ToMapShareExtension */,
 				4D7637C85D3C72C4CDFAE7CE /* Products */,
 			);
@@ -231,6 +248,7 @@
 			buildConfigurationList = D5DEA209E3D29E86DA45F4C1 /* Build configuration list for PBXNativeTarget "ToMap" */;
 			buildPhases = (
 				BB4375FC6F5A4150734FDDD1 /* Sources */,
+				97053A8D179203F9E5CC522A /* Resources */,
 				D7D2B54A5C230253B226253D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
@@ -291,6 +309,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		97053A8D179203F9E5CC522A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD51F9E4904BB1A3DF67FA33 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BB4375FC6F5A4150734FDDD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -303,6 +332,7 @@
 				0B33B28D3EB9C436E8EA6363 /* ListDetailView.swift in Sources */,
 				200B3148A2917497D5AB1E6F /* ListsView.swift in Sources */,
 				F7B9759F476829DA24BD924D /* MapsService.swift in Sources */,
+				9F847851723438C0BB0654B1 /* OnboardingView.swift in Sources */,
 				6AE49B87DA33C8A1BD1CD433 /* PersistenceController.swift in Sources */,
 				EAE2EA83094E937915223DC1 /* RestaurantItem.swift in Sources */,
 				E33712A5C481C4919AF38FDB /* RestaurantList.swift in Sources */,
@@ -317,7 +347,7 @@
 				D956DBFD5BA319AFC6FE2686 /* Config.swift in Sources */,
 				23FEE0005CAA9211C983319F /* ConfirmationView.swift in Sources */,
 				433D4F11C0051EBC13D803F3 /* ErrorView.swift in Sources */,
-				062C8F135780711D9C258BE5 /* GeminiService.swift in Sources */,
+				6957DE4B61E7DD35A63E73FF /* GroqService.swift in Sources */,
 				9D0CA8A8939BDBF59C0B6407 /* HistoryEntry.swift in Sources */,
 				5F737F73B642254667B5D5ED /* ListPickerView.swift in Sources */,
 				6E3B7D8CC0D663E5D32F925F /* LoadingView.swift in Sources */,
@@ -349,6 +379,7 @@
 /* Begin XCBuildConfiguration section */
 		37B49A05CE213FDE0DC62326 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26468B2BF870787B7EE1146D /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Entitlements/ToMapShareExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
@@ -370,6 +401,7 @@
 		};
 		48B4C25B416F89DF85F63F09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26468B2BF870787B7EE1146D /* Config.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Entitlements/ToMapShareExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
@@ -454,6 +486,7 @@
 		};
 		A726CFD6C4DC95B05C8CC772 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26468B2BF870787B7EE1146D /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Entitlements/ToMap.entitlements;
@@ -476,6 +509,7 @@
 		};
 		D60C1AF627B5FFB41EF002BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26468B2BF870787B7EE1146D /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Entitlements/ToMap.entitlements;

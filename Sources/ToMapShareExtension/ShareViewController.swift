@@ -32,6 +32,7 @@ final class ShareViewController: UIViewController {
         )
 
         let host = UIHostingController(rootView: rootView)
+        host.view.backgroundColor = .clear
         addChild(host)
         view.addSubview(host.view)
         host.view.translatesAutoresizingMaskIntoConstraints = false

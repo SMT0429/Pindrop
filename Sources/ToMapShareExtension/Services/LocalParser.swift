@@ -4,11 +4,6 @@ import Foundation
 /// 適用於台灣美食 IG 貼文常見格式（【店名】、📍/🚩地址 等）。
 enum LocalParser {
 
-    struct Result {
-        let name: String
-        let location: String
-    }
-
     static func parse(text: String) -> ParsedRestaurant? {
         let name = extractName(from: text)
         let location = extractLocation(from: text)
