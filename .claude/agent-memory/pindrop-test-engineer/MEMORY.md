@@ -1,0 +1,1 @@
+- [Architecture](project_architecture.md) -- module structure, DI gaps, testability constraints, no Xcode on machine

@@ -27,11 +27,25 @@ enum LocalParser {
         for (pattern, group) in patterns {
             if let result = capture(pattern: pattern, in: text, group: group) {
                 let cleaned = result.trimmingCharacters(in: .whitespacesAndNewlines)
-                if !cleaned.isEmpty { return cleaned }
+                if !cleaned.isEmpty && !looksLikeAddress(cleaned) { return cleaned }
             }
         }
 
         return nil
+    }
+
+    /// 判斷一段文字是否像「地址」而非「店名」。
+    /// 用於 emoji-prefixed pattern 既會配到 📍店名 也會配到 📍地址 的情境。
+    private static func looksLikeAddress(_ text: String) -> Bool {
+        // 1. 含明確地址關鍵字
+        let addressKeywords = ["號", "樓", "路", "街", "段", "巷", "弄", "區",
+                               "市", "縣", "鄉", "鎮", "里", "村"]
+        for keyword in addressKeywords where text.contains(keyword) {
+            return true
+        }
+        // 2. 以數字開頭（例如 "100 台北市..."）
+        if let first = text.first, first.isNumber { return true }
+        return false
     }
 
     // MARK: - Location Extraction
@@ -40,7 +54,7 @@ enum LocalParser {
         let patterns: [(String, Int)] = [
             // 完整地址（含市/縣）
             (#"([台臺][北南中東西](?:市|縣)[^\n,，。]{2,40}(?:號|樓|F))"#, 1),
-            (#"(新北|桃園|台中|臺中|台南|臺南|高雄|新竹|基隆)[^\n,，。]{2,40}(?:號|樓|F)"#, 1),
+            (#"((?:新北|桃園|台中|臺中|台南|臺南|高雄|新竹|基隆)[^\n,，。]{2,40}(?:號|樓|F))"#, 1),
             // 🚩 後面的地址
             (#"🚩\s*([^\n]{4,50})"#, 1),
             (#"📍\s*([^\n]{4,50})"#, 1),

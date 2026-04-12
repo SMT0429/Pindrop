@@ -66,3 +66,21 @@ targets:
         CURRENT_PROJECT_VERSION: "1"
         IPHONEOS_DEPLOYMENT_TARGET: "17.0"
         CODE_SIGN_ENTITLEMENTS: Entitlements/PindropShareExtension.entitlements
+
+  PindropTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests/PindropTests
+      - path: Sources/PindropShareExtension/Services/LocalParser.swift
+      - path: Sources/PindropShareExtension/Services/GroqService.swift
+      - path: Sources/PindropShareExtension/Services/PlacesService.swift
+      - path: Sources/PindropShareExtension/Services/OGMetadataService.swift
+      - path: Sources/PindropShareExtension/Models
+      - path: Sources/Shared/Utils/MapsService.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.smt.pindrop.tests
+        SWIFT_VERSION: "5.9"
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        GENERATE_INFOPLIST_FILE: YES
