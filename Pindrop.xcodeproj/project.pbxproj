@@ -92,11 +92,11 @@
 		35681E453AC476DE71A74943 /* OGMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OGMetadataService.swift; sourceTree = "<group>"; };
 		47F385158CAAA15BADF0962B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		488B2CE49C0574CC7BCEFB0B /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
-		5D2021E154CA1B1E7423B339 /* PindropShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = PindropShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D2021E154CA1B1E7423B339 /* PindropShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PindropShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		600902BA9B6DA78AB4588B96 /* ListPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPickerView.swift; sourceTree = "<group>"; };
 		7B0B2BA2ED8CD944162D8CDE /* GroqServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroqServiceTests.swift; sourceTree = "<group>"; };
 		7C652C3FC566D14BACCF3023 /* GroqService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroqService.swift; sourceTree = "<group>"; };
-		7C890F10DFC08F15CEE183A6 /* Pindrop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Pindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C890F10DFC08F15CEE183A6 /* Pindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E3BFF6F5A8A3514CB5AD351 /* ShareRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRootView.swift; sourceTree = "<group>"; };
 		7F965FF67B35FAF589AE9FF5 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		85F1F7E380B1B18A0ECB4DB0 /* LocalParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalParser.swift; sourceTree = "<group>"; };
@@ -337,8 +337,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 31FE3CE75788FE0173E930F8 /* Build configuration list for PBXProject "Pindrop" */;
 			developmentRegion = en;
@@ -527,6 +525,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Entitlements/PindropShareExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69V3Q74Y57;
 				INFOPLIST_FILE = Sources/PindropShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -550,6 +549,7 @@
 				CODE_SIGN_ENTITLEMENTS = Entitlements/Pindrop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69V3Q74Y57;
 				INFOPLIST_FILE = Sources/Pindrop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -570,6 +570,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Entitlements/PindropShareExtension.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69V3Q74Y57;
 				INFOPLIST_FILE = Sources/PindropShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -656,6 +657,7 @@
 				CODE_SIGN_ENTITLEMENTS = Entitlements/Pindrop.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 69V3Q74Y57;
 				INFOPLIST_FILE = Sources/Pindrop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
