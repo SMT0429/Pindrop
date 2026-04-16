@@ -96,7 +96,7 @@ private struct WelcomePage: View {
                 .font(.system(size: 40, weight: .bold))
                 .foregroundStyle(Color.brandRed)
 
-            Text("把 Instagram 美食，釘進你的 Google Map")
+            Text("把 Instagram 美食，釘進你的地圖")
                 .font(.title3)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
@@ -172,7 +172,7 @@ private struct ResultPage: View {
                 Text("找到了！")
                     .font(.title).bold()
                     .foregroundStyle(Color.brandRed)
-                Text("餐廳地址直接顯示在 Google Map 上")
+                Text("餐廳地址直接顯示在地圖上")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)

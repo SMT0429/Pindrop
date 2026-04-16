@@ -6,6 +6,8 @@ struct HistoryView: View {
     @Query(sort: \HistoryEntry.openedAt, order: .reverse) private var entries: [HistoryEntry]
     @Environment(\.modelContext) private var context
 
+    @State private var pickerTarget: MapsTarget?
+
     var body: some View {
         NavigationStack {
             Group {
@@ -14,7 +16,7 @@ struct HistoryView: View {
                 } else {
                     List {
                         ForEach(entries) { entry in
-                            HistoryRowView(entry: entry)
+                            HistoryRowView(entry: entry, pickerTarget: $pickerTarget)
                         }
                         .onDelete { indexSet in
                             indexSet.forEach { context.delete(entries[$0]) }
@@ -25,6 +27,9 @@ struct HistoryView: View {
             }
             .navigationTitle("過往記錄")
             .navigationBarTitleDisplayMode(.large)
+        }
+        .mapsPicker(target: $pickerTarget) { app, target in
+            MapsLauncher.openImmediately(target, with: app)
         }
     }
 
@@ -48,6 +53,7 @@ struct HistoryView: View {
 
 private struct HistoryRowView: View {
     let entry: HistoryEntry
+    @Binding var pickerTarget: MapsTarget?
     @State private var showSaveSheet = false
 
     var body: some View {
@@ -76,7 +82,10 @@ private struct HistoryRowView: View {
                 .tint(.red)
 
                 Button {
-                    openInMaps(placeId: entry.placeId, name: entry.name)
+                    MapsLauncher.requestOpen(
+                        MapsTarget(placeId: entry.placeId, name: entry.name, address: entry.address),
+                        pickerTarget: $pickerTarget
+                    )
                 } label: {
                     Label("地圖", systemImage: "map.fill")
                         .font(.caption)
@@ -229,9 +238,4 @@ private struct SaveToListSheet: View {
         try? context.save()
         onDismiss()
     }
-}
-
-private func openInMaps(placeId: String, name: String) {
-    let url = MapsService.googleMapsURL(placeId: placeId, name: name)
-    UIApplication.shared.open(url)
 }

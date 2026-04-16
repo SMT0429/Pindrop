@@ -2,9 +2,13 @@ import SwiftUI
 
 struct ShareRootView: View {
     @ObservedObject var viewModel: ShareViewModel
-    let onOpenMaps: (Place) -> Void
+    /// 呼叫端：依 `app` 實際 open URL（Share Extension 走 responder chain）
+    let onOpenMaps: (Place, MapsApp) -> Void
     let onComplete: () -> Void
     let onCancel: () -> Void
+
+    /// Picker 當前目標；非 nil 時顯示 confirmationDialog
+    @State private var pickerPlace: Place?
 
     var body: some View {
         let screenH = UIScreen.main.bounds.height
@@ -43,7 +47,7 @@ struct ShareRootView: View {
                             place: place,
                             onOpenMaps: {
                                 viewModel.saveHistory(place)
-                                onOpenMaps(place)
+                                handleOpenRequest(place)
                             },
                             onSaveToList: { list in
                                 viewModel.saveToList(place, list: list)
@@ -57,7 +61,7 @@ struct ShareRootView: View {
                     case .selection(let places):
                         SelectionListView(
                             places: places,
-                            onOpenMaps: { place in onOpenMaps(place) },
+                            onOpenMaps: { place in handleOpenRequest(place) },
                             onSaveToList: { selectedPlaces, list in
                                 selectedPlaces.forEach { viewModel.saveToList($0, list: list) }
                             },
@@ -80,5 +84,35 @@ struct ShareRootView: View {
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         }
         .modelContainer(viewModel.modelContainer)
+        .confirmationDialog(
+            String(localized: "選擇地圖 App"),
+            isPresented: Binding(
+                get: { pickerPlace != nil },
+                set: { if !$0 { pickerPlace = nil } }
+            ),
+            titleVisibility: .visible,
+            presenting: pickerPlace
+        ) { place in
+            Button(MapsApp.apple.displayName) {
+                onOpenMaps(place, .apple)
+            }
+            Button(MapsApp.google.displayName) {
+                onOpenMaps(place, .google)
+            }
+            Button(String(localized: "取消"), role: .cancel) {
+                pickerPlace = nil
+            }
+        } message: { place in
+            Text(place.name)
+        }
+    }
+
+    /// 依用戶偏好：直接開或顯示 picker。
+    private func handleOpenRequest(_ place: Place) {
+        if let app = MapsPreferenceStore.resolvedApp {
+            onOpenMaps(place, app)
+        } else {
+            pickerPlace = place
+        }
     }
 }

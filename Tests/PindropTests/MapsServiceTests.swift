@@ -125,4 +125,51 @@ final class MapsServiceTests: XCTestCase {
         let url = MapsService.googleMapsAppURL(placeId: placeId, name: longName)
         XCTAssertNotNil(url)
     }
+
+    // MARK: - Apple Maps URL
+
+    func test_appleMapsURL_returnsHTTPSMapsAppleDotCom() {
+        let url = MapsService.appleMapsURL(name: "Din Tai Fung")
+        XCTAssertEqual(url.scheme, "https")
+        XCTAssertEqual(url.host, "maps.apple.com")
+    }
+
+    func test_appleMapsURL_encodesNameInQueryParameter() {
+        let url = MapsService.appleMapsURL(name: "Bar & Grill")
+        let urlString = url.absoluteString
+        // & must be percent-encoded so it doesn't split the query
+        XCTAssertFalse(urlString.contains("q=Bar & Grill"))
+        XCTAssertTrue(urlString.contains("q="))
+    }
+
+    func test_appleMapsURL_withAddress_includesAddressParam() {
+        let url = MapsService.appleMapsURL(name: "Test", address: "Taipei 101")
+        let urlString = url.absoluteString
+        XCTAssertTrue(urlString.contains("q=Test"))
+        XCTAssertTrue(urlString.contains("address="))
+    }
+
+    func test_appleMapsURL_emptyAddress_omitsAddressParam() {
+        let url = MapsService.appleMapsURL(name: "Test", address: "")
+        let urlString = url.absoluteString
+        XCTAssertFalse(urlString.contains("address="))
+    }
+
+    func test_appleMapsURL_chineseName_isPercentEncoded() {
+        let url = MapsService.appleMapsURL(name: "鼎泰豐")
+        let urlString = url.absoluteString
+        XCTAssertFalse(urlString.contains("鼎泰豐"))
+    }
+
+    // MARK: - Unified entry
+
+    func test_url_forAppleApp_returnsAppleMapsURL() {
+        let url = MapsService.url(for: .apple, placeId: "ChIJ123", name: "Test", address: "")
+        XCTAssertEqual(url.host, "maps.apple.com")
+    }
+
+    func test_url_forGoogleApp_returnsGoogleMapsWebURL() {
+        let url = MapsService.url(for: .google, placeId: "ChIJ123", name: "Test", address: "")
+        XCTAssertEqual(url.host, "www.google.com")
+    }
 }

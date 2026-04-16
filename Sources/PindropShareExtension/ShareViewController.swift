@@ -18,8 +18,8 @@ final class ShareViewController: UIViewController {
     private func setupUI() {
         let rootView = ShareRootView(
             viewModel: viewModel,
-            onOpenMaps: { [weak self] place in
-                self?.openInGoogleMaps(place: place)
+            onOpenMaps: { [weak self] place, app in
+                self?.openInMaps(place: place, app: app)
             },
             onComplete: { [weak self] in
                 self?.extensionContext?.completeRequest(returningItems: nil)
@@ -130,15 +130,23 @@ final class ShareViewController: UIViewController {
         return URL(string: String(text[range]))
     }
 
-    // MARK: - Google Maps Opening
+    // MARK: - Maps Opening
 
-    private func openInGoogleMaps(place: Place) {
-        let appURL = MapsService.googleMapsAppURL(placeId: place.id, name: place.name)
-        let webURL = MapsService.googleMapsWebURL(placeId: place.id, name: place.name)
+    /// 依用戶選擇的地圖 App 開啟。
+    /// Apple Maps 使用 maps.apple.com universal link；Google Maps 優先 comgooglemaps:// 再 fallback 到網頁版。
+    private func openInMaps(place: Place, app: MapsApp) {
+        switch app {
+        case .apple:
+            let url = MapsService.appleMapsURL(name: place.name, address: place.address)
+            openViaResponderChain(url: url)
 
-        // Share Extension 無法直接用 UIApplication.shared，改走 responder chain
-        let opened = openViaResponderChain(url: appURL)
-        if !opened { _ = openViaResponderChain(url: webURL) }
+        case .google:
+            let appURL = MapsService.googleMapsAppURL(placeId: place.id, name: place.name)
+            let webURL = MapsService.googleMapsWebURL(placeId: place.id, name: place.name)
+            // Share Extension 無法直接用 UIApplication.shared，改走 responder chain
+            let opened = openViaResponderChain(url: appURL)
+            if !opened { _ = openViaResponderChain(url: webURL) }
+        }
 
         extensionContext?.completeRequest(returningItems: nil)
     }
